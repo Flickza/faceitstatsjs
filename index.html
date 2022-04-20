@@ -14,15 +14,46 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-      <div class="container">
-        <div class="searchbar input-group mb-3">
-            <input type="text" id="searchfield" class="form-control" placeholder="username (case sensitive)">
-            <button class="searchbtn btn btn-outline-secondary" type="button" id="playersearchbtn">Search</button>
-        </div>
-        <div class="main grey-bg">
-            <h1 style="text-align: center;">Search for a player!</h1>
-          </div>
+    <div class="container grey-bg main">
+      <div class="searchbar input-group mb-3">
+        <input
+          type="text"
+          id="playersearch"
+          class="form-control"
+          placeholder="username (case sensitive)"
+        />
+        <button
+          class="searchbtn btn btn-outline-secondary"
+          type="button"
+          id="playersearchbtn"
+        >
+          Search
+        </button>
       </div>
+        <h4 style="text-align: center">Search for a player!</h4>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 playerprofile faceitcolors shadow-bottom border-bottom border-5 border-dark">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <img id="playerimg" src="https://distribution.faceit-cdn.net/images/b356e0ec-5a89-4b74-8aaa-785886b9fae7.jpeg" class="rounded-circle mx-auto d-block border border-5" alt="player avatar" width="150px" height="150px">
+                    </div>
+                    <div class="col-6 mt-3">
+                        <h4 class="mx-auto d-block shadow fw-bold">Stats for player <span id="playerurl"></span></h4>
+                        <h5 class="mx-auto d-block shadow">Country: <span id="playercountry" class="fw-bold">Netherlands</span></h5>
+                        <h5 class="mx-auto d-block shadow">Recent results: 
+                            <span class="win fw-bold">W</span>
+                            <span class="win fw-bold">W</span>
+                            <span class="win fw-bold">W</span>
+                            <span class="loss fw-bold">L</span>
+                            <span class="win fw-bold">W</span>
+                        </h5>
+                        <h5 class="mx-auto d-block shadow">Elo: <span id="playerelo" class="fw-bold">3044</span></h5>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
