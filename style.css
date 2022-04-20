@@ -1,29 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+* {
+    font-family: 'Play', sans-serif;
+}
+
 .grey-bg {
-    background-color: #141616;
+    background-color: #232727;
   }
   body {
     background-color: #141616;
-    color: #ff5500;
+    color:white;
   }
   
   .faceitcolors {
     color: #ff5500;
   }
-  
-  .faceitcolors th,
-  td {
-    color: #ff5500;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: #ff5500;
-  }
-  
-  p,
-  small,
-  label {
-    color: #ff5500;
-  }
+
+.searchbar {
+    margin: 15px;
+    width: 400px;
+    height: 50px;
+}
+
+.container .searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.searchbtn {
+    background-image: url("/img/faceit_icon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:white;
+}
+
+.main {
+    border: 0.1px solid #ff5500;
+    height: 600px;
+}
