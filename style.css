@@ -1,0 +1,29 @@
+.grey-bg {
+    background-color: #141616;
+  }
+  body {
+    background-color: #141616;
+    color: #ff5500;
+  }
+  
+  .faceitcolors {
+    color: #ff5500;
+  }
+  
+  .faceitcolors th,
+  td {
+    color: #ff5500;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #ff5500;
+  }
+  
+  p,
+  small,
+  label {
+    color: #ff5500;
+  }
