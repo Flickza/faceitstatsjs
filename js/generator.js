@@ -50,10 +50,7 @@ var fillPage = user => {
         playersLast20.kd.push(match["K/D Ratio"]);
         playersLast20.kr.push(match["K/R Ratio"]);
     });
-
-    console.log(playersLast20);
-
-
+    console.log(user.last20Stats);
 
     $("#playerkd").html(user.stats.lifetime["Average K/D Ratio"] + " K/D");
     $("#playerhs").html(user.stats.lifetime["Average Headshots %"] + " %");
