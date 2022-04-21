@@ -1,4 +1,4 @@
-import { API_KEY } from './config.js';
+import { API_KEY } from '../config.js';
 
 //get player ...'s stats
 function getPlayerData(username) {

@@ -1,5 +1,5 @@
-import { getPlayerData } from './fetch.js';
-import { fillPage } from './generator.js';
+import { getPlayerData } from '../fetch.js';
+import { fillPage } from '../generator.js';
 
 //if button is clicked, make search
 $("#playersearchbtn").on('click', () => {
