@@ -91,6 +91,7 @@ var getPlayerData = (username) => {
                 });
             }
         });
+    //loop over last 20 matches find the team where the player is on and push the stats of the player into an array
     json.last20.forEach(match => {
         match.teams.forEach(teams => {
             teams.players.forEach(x => {
