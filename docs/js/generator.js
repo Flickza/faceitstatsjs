@@ -1,4 +1,4 @@
-import { skill_levels, recentResults } from '../icons.js';
+import { skill_levels, recentResults } from '../js/icons.js';
 
 var fillPage = user => {
     //first section
