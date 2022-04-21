@@ -61,38 +61,53 @@
               <h5 class="mx-auto d-block"><span id="playerlevel"></span></h5>
             </div>
           </div>
-          <h4 class="text-center fw-bold">Stats</h4>
+          <h4 class="text-center mt-1 fw-bold">Stats</h4>
           <div class="row playerstats d-flex justify-content-center">
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">K/D Ratio</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="text-center mt-1 fw-bold">K/D Ratio</h4>
+            <h5 class="faceitcolors">Average K/D: <span id="playerkd" class="fw-bold"></span></h5>
             </div>
           </div>
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">Winrate</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="text-center mt-1 fw-bold">W/L Rating</h4>
+              <h5 class="faceitcolors">Win Rate: <span id="playerwinrate" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Wins: <span id="playerwins" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Losses: <span id="playerlosses" class="fw-bold"></span></h5>
             </div>
           </div>
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">HLTV Rating</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="text-center mt-1 fw-bold">HLTV Rating</h4>
             </div>
           </div>
           </div>
           <div class="row playerstats d-flex justify-content-center mt-5">
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">ELO</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="text-center mt-1 fw-bold">Multi Kills & MVPs</h4>
+              <h5 class="faceitcolors">Aces: <span id="totalAces" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">4Ks: <span id="total4Ks" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">3Ks: <span id="total3Ks" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">MVPs: <span id="totalMvps" class="fw-bold"></span></h5>
             </div>
           </div>
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">Headshots</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="mt-1 text-center fw-bold">Total Statistics</h4>
+              <h5 class="faceitcolors">Kills: <span id="totalKills" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Deaths: <span id="totalDeaths" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Assists: <span id="totalAssists" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Headshots: <span id="totalHeadshots" class="fw-bold"></span></h5>
             </div>
           </div>
           <div class="col-4">
-            <div class="container border border-1 border-dark shadow-lg">
-              <h4 class="text-center fw-bold">Matches</h4>
+            <div class="container statcard border border-1 border-dark shadow-lg">
+              <h4 class="text-center mt-1 fw-bold">Matches</h4>
+              <h5 class="faceitcolors">Total Matches: <span id="totalMatches" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Highest Winstreak: <span id="highestWstreak" class="fw-bold"></span></h5>
+              <h5 class="faceitcolors">Current Winstreak: <span id="currentWstreak" class="fw-bold"></span></h5>
             </div>
           </div>
           </div>
@@ -111,6 +126,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

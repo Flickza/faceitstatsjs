@@ -42,7 +42,7 @@
 .main {
     border: 0.1px solid #ff5500;
     border-radius: 5px;
-    height: 600px;
+    height: 1200px, auto;
 }
 .playerprofile {
     margin: 15px;
@@ -62,4 +62,10 @@ a {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url("https://distribution.faceit-cdn.net/images/e3c21c03-3235-4c54-85d3-763758e1efa7.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.statcard {
+    background-color: #343535;
+    width: auto;
+    height: auto;
 }
