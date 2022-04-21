@@ -22,6 +22,7 @@ var getPlayerData = (username) => {
                 });
             }
         });
+
     var json = new Object;
     json.profile = new Object;
     json.stats = new Object;

@@ -13,7 +13,7 @@ var fillPage = user => {
     $(".playerprofile").css('background-image', `linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url("${user.profile.cover_image}")`);
 
     //player country identificator
-    $("#playercountry").html(user.profile.country);
+    $("#playercountry").attr("src", `https://countryflagsapi.com/png/${user.profile.country}`);
 
     //player elo rating
     $("#playerelo").html(user.profile.games.csgo.faceit_elo);
