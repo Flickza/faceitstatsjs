@@ -3,4 +3,4 @@ Made with js/jquery.
 Retrieves player statistics from open.faceit.com and displays them with some styling.
 
 # Status
-Under development.
+80% Complete
