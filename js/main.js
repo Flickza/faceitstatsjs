@@ -1,4 +1,4 @@
-import { getPlayerData } from './fetch.js';
+import { getData } from './fetch.js';
 import { fillPage } from './generator.js';
 
 //if button is clicked, make search
@@ -13,14 +13,16 @@ $("#playersearch").on('keypress', (e) => {
     }
 });
 
-const main = () => {
+var main = async () => {
     //gets player username from inputfield
-    var user = getPlayerData($("#playersearch").val());
-    
+    // var user = await getData($("#playersearch").val());
+    console.time("load")
+    var user = await getData("Flickza");
     //start function that calculates page values
     fillPage(user);
-    
+    console.timeEnd("load")    
     //show page
     $("#aftersearch").attr('hidden', false);
     $("#searchText").hide();
 };
+main();
