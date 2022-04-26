@@ -1,8 +1,9 @@
 import { skill_levels, recentResults } from './icons.js';
 
-var fillPage = user => {
+var fillPage = async (user) => {
     //first section
 
+    await user;
     //player avatar
     $("#playerimg").attr("src", user.profile.avatar);
 
@@ -41,7 +42,7 @@ var fillPage = user => {
         kd: [],
         kr: []
     };
-
+    console.log(user);
     user.last20Stats.forEach(match => {
         playersLast20.Kills += parseInt(match.Kills);
         playersLast20.Deaths += parseInt(match.Deaths);
@@ -50,7 +51,7 @@ var fillPage = user => {
         playersLast20.kd.push(match["K/D Ratio"]);
         playersLast20.kr.push(match["K/R Ratio"]);
     });
-    console.log(user.last20Stats);
+
 
     $("#playerkd").html(user.stats.lifetime["Average K/D Ratio"] + " K/D");
     $("#playerhs").html(user.stats.lifetime["Average Headshots %"] + " %");
@@ -134,7 +135,7 @@ var fillPage = user => {
             }
         }
     });
-    
+
     //K/R Chart last 20 Matches
     const krChart = $('#krChart');
     const krChartRender = new Chart(krChart, {
@@ -164,7 +165,7 @@ var fillPage = user => {
             }
         }
     });
-    
+
 };
 
 

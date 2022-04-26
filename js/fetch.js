@@ -4,7 +4,7 @@ import { API_KEY } from './config.js';
 //get player ...'s stats
 async function getData(uname) {
     var realUsername;
-    var json = new Object;
+    var json = {};
     var search = await playerSearch(uname);
     //if no player was found. return "no player found"
     if (search.items.length == 0) {
@@ -25,10 +25,10 @@ async function getData(uname) {
     //get last 20 matches played
     json.last20 = (await getLast20(json.profile.player_id)).items;
     //make an empty array for the players stats of the last 20 matches
-    json.last20Stats = new Array;
+    json.last20Stats = [];
     //fill array with the players individual stats of the last 20 matches
-    json.last20.forEach(async function (match) {
-        var match = await getPlayerMatchStats(match.match_id);
+    json.last20.forEach(async function (m) {
+        var match = await getPlayerMatchStats(m.match_id);
             match.rounds[0].teams.forEach(team => {
             if (team.players.filter(player => player.player_id == json.profile.player_id).length > 0) {
                 json.last20Stats.push(team.players.filter(player => player.player_id == json.profile.player_id)[0].player_stats);
@@ -36,83 +36,83 @@ async function getData(uname) {
         });
     });
     return json;
-};
+    };
 
-//first make a player search to avoid search being case sensitive
-function playerSearch(u) {
-    return $.ajax
-        ({
-            type: "GET",
-            url: `https://open.faceit.com/data/v4/search/players?nickname=${u}&offset=0&limit=10`,
-            dataType: 'json',
-            headers: {
-                "Authorization": API_KEY
-            },
-            done: function (data) {
-                return data;
-            }
-        });
-}
-//first ajax call to get player profile
-function playerProfile(u) {
-    return $.ajax
-        ({
-            type: "GET",
-            url: `https://open.faceit.com/data/v4/players?nickname=${u}`,
-            dataType: 'json',
-            headers: {
-                "Authorization": API_KEY
-            },
-            done: function (data) {
-                return data;
-            }
-        });
-}
-//use player_id from first call to get player stats for csgo
-async function getStats(pid) {
-    return $.ajax
-        ({
-            type: "GET",
-            url: `https://open.faceit.com/data/v4/players/${pid}/stats/csgo`,
-            dataType: 'json',
-            headers: {
-                "Authorization": API_KEY
-            },
-            done: function (data) {
-                return data;
-            }
-        });
-}
-//get last 20 matches
-function getLast20(pid) {
-    return $.ajax
-        ({
-            type: "GET",
-            url: `https://open.faceit.com/data/v4/players/${pid}/history?game=csgo&offset=0&limit=20`,
-            dataType: 'json',
-            headers: {
-                "Authorization": API_KEY
-            },
-            done: function (data) {
-                return data;
-            }
-        });
-}
+    //first make a player search to avoid search being case sensitive
+    function playerSearch(u) {
+        return $.ajax
+            ({
+                type: "GET",
+                url: `https://open.faceit.com/data/v4/search/players?nickname=${u}&offset=0&limit=10`,
+                dataType: 'json',
+                headers: {
+                    "Authorization": API_KEY
+                },
+                done: function (data) {
+                    return data;
+                }
+            });
+    }
+    //first ajax call to get player profile
+    function playerProfile(u) {
+        return $.ajax
+            ({
+                type: "GET",
+                url: `https://open.faceit.com/data/v4/players?nickname=${u}`,
+                dataType: 'json',
+                headers: {
+                    "Authorization": API_KEY
+                },
+                done: function (data) {
+                    return data;
+                }
+            });
+    }
+    //use player_id from first call to get player stats for csgo
+    function getStats(pid) {
+        return $.ajax
+            ({
+                type: "GET",
+                url: `https://open.faceit.com/data/v4/players/${pid}/stats/csgo`,
+                dataType: 'json',
+                headers: {
+                    "Authorization": API_KEY
+                },
+                done: function (data) {
+                    return data;
+                }
+            });
+    }
+    //get last 20 matches
+    function getLast20(pid) {
+        return $.ajax
+            ({
+                type: "GET",
+                url: `https://open.faceit.com/data/v4/players/${pid}/history?game=csgo&offset=0&limit=20`,
+                dataType: 'json',
+                headers: {
+                    "Authorization": API_KEY
+                },
+                done: function (data) {
+                    return data;
+                }
+            });
+    }
 
-//get stats of last 20 matches
-function getPlayerMatchStats(match_id) {
-    return $.ajax
-        ({
-            type: "GET",
-            url: `https://open.faceit.com/data/v4/matches/${match_id}/stats`,
-            dataType: 'json',
-            headers: {
-                "Authorization": API_KEY
-            },
-            done: function (data) {
-                return data;
-            }
-        });
-}
+    //get stats of last 20 matches
+    function getPlayerMatchStats(match_id) {
+        return $.ajax
+            ({
+                type: "GET",
+                url: `https://open.faceit.com/data/v4/matches/${match_id}/stats`,
+                dataType: 'json',
+                headers: {
+                    "Authorization": API_KEY
+                },
+                done: function (data) {
+                    return data;
+                }
+            });
+    }
 
-export { getData };
+    export { getData };
