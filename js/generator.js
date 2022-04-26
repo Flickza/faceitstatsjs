@@ -3,7 +3,6 @@ import { skill_levels, recentResults } from './icons.js';
 var fillPage = async (user) => {
     //first section
 
-    await user;
     //player avatar
     $("#playerimg").attr("src", user.profile.avatar);
 
@@ -42,7 +41,9 @@ var fillPage = async (user) => {
         kd: [],
         kr: []
     };
+
     console.log(user);
+
     user.last20Stats.forEach(match => {
         playersLast20.Kills += parseInt(match.Kills);
         playersLast20.Deaths += parseInt(match.Deaths);
