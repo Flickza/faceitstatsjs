@@ -32,7 +32,7 @@
     margin-right: auto;
 }
 .searchbtn {
-    background-image: url("/img/faceit_icon.png");
+    background-image: url("faceit_icon.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
