@@ -39,6 +39,7 @@ async function getData(uname) {
 
     //fill array with the players individual stats of the last 20 matches
     json.last20Stats = await getLast20Stats(json.last20Matches, json.profile.player_id);
+
     return json;
 };
 
@@ -119,19 +120,20 @@ function getPlayerMatchStats(match_id) {
         });
 }
 
-async function getLast20Stats(arr, pid) {
-    const results = []
-    await arr.forEach(async function (m) {
-        (await getPlayerMatchStats(m.match_id)).rounds[0].teams.forEach((team => {
+async function getLast20Stats(array, pid) {
+    let resultsArr = []
+
+    for (let i = 0; i < array.length; i++) {
+        const matchStats = await getPlayerMatchStats(array[i].match_id)
+        matchStats.rounds[0].teams.forEach(team => {
             team.players.forEach(player => {
                 if (player.player_id == pid) {
-                    console.log(player.player_stats);
-                    results.push(player.player_stats);
+                    resultsArr.push(player.player_stats);
                 }
             });
-        }))
-    });
-    return results
+        });
+    }
+    return resultsArr
 }
 
 export { getData };

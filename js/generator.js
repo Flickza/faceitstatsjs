@@ -136,7 +136,7 @@ var fillPage = async (user) => {
             }
         }
     });
-
+    
     //K/R Chart last 20 Matches
     const krChart = $('#krChart');
     const krChartRender = new Chart(krChart, {
