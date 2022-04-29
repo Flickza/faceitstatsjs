@@ -20,8 +20,10 @@ var main = async () => {
     console.time("load")
     $("#aftersearch").attr('hidden', true);
     $("#loader-container").show();
+
     //start function that calculates page values
     fillPage(await getData($("#playersearch").val()));
+    
     console.timeEnd("load")
     //show page
     $("#loader-container").hide();

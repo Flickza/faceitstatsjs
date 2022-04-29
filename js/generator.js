@@ -1,6 +1,7 @@
 import { skill_levels, recentResults } from './icons.js';
 
-var fillPage = async (user) => {
+var fillPage = async (user, init) => {
+    
     //first section
 
     //player avatar
@@ -106,66 +107,49 @@ var fillPage = async (user) => {
     $("#highestWstreak").html(user.stats.lifetime["Longest Win Streak"]);
     $("#currentWstreak").html(user.stats.lifetime["Current Win Streak"]);
 
+    const initChart = (elem, data, label) => {
+        return new Chart(elem, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: [
+                        'rgba(255, 85, 0, 0.1)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 85, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                    tension: 0.2,
+                    pointRadius: 1.5,
+                    pointHitRadius: 20
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        })
+    };
 
+    if (init == false) {
+        kdChartRender.destroy();
+        krChartRender.destroy();
+    }
     //K/D last 20 chart
     const kdChart = $('#kdChart');
-    const kdChartRender = new Chart(kdChart, {
-        type: 'line',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-            datasets: [{
-                label: 'K/D per match',
-                data: playersLast20.kd,
-                backgroundColor: [
-                    'rgba(255, 85, 0, 0.1)',
-                ],
-                borderColor: [
-                    'rgba(255, 85, 0, 1)',
-                ],
-                borderWidth: 1,
-                tension: 0.2,
-                pointRadius: 1.5,
-                pointHitRadius: 20
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
-    });
-    
+    let kdChartRender = initChart(kdChart, playersLast20.kd, "K/D");
+
+
     //K/R Chart last 20 Matches
     const krChart = $('#krChart');
-    const krChartRender = new Chart(krChart, {
-        type: 'line',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-            datasets: [{
-                label: 'K/R per match',
-                data: playersLast20.kr,
-                backgroundColor: [
-                    'rgba(255, 85, 0, 0.1)',
-                ],
-                borderColor: [
-                    'rgba(255, 85, 0, 1)',
-                ],
-                borderWidth: 1,
-                tension: 0.2,
-                pointRadius: 1.5,
-                pointHitRadius: 20
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
-    });
+    let krChartRender = initChart(krChart, playersLast20.kr, "K/R");
+
 
 };
 
