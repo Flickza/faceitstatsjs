@@ -18,6 +18,7 @@ $("#playersearch").on('keypress', (e) => {
 var main = async () => {
     //gets player username from inputfield
     console.time("load")
+    $("#aftersearch").attr('hidden', true);
     $("#loader-container").show();
     //start function that calculates page values
     fillPage(await getData($("#playersearch").val()));
